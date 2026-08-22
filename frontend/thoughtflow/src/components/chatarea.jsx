@@ -8,6 +8,7 @@ const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3
 const socket = io(VITE_BACKEND_URL);
 const Chatarea = () => {
   const playTingS = () => {
+    // helps to play the songs
     const audio = new Audio('/audio/pop.mp3');
     audio.play();
   };
@@ -35,6 +36,7 @@ const Chatarea = () => {
   }, [chatWithUser]);
   useEffect(() => {
     const fetchMessages = async () => {
+      // fetch the messages
       const msg = await fetch(`${VITE_BACKEND_URL}/api/msg/getMessages`, {
         method: 'POST',
         headers: {
